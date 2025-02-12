@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Much I Love You</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #fceabb, #f8b500, #ffdfba);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .card {
+      background: rgba(255,255,255,0.98);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 30px;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+    h2 {
+      color: #d6336c;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .love-btn {
+      background-color: #d6336c;
+      border: none;
+      padding: 12px;
+      margin: 10px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      width: calc(100% - 20px);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .love-btn:hover {
+      background-color: #a71d50;
+      box-shadow: 0 0 15px rgba(214, 51, 108, 0.6);
+    }
+    .answer {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #d6336c;
+      font-weight: bold;
+      min-height: 50px;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .navigation {
+      margin-top: 30px;
+    }
+    .btn {
+      background-color: #d6336c;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 10px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #a71d50;
+    }
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .heart {
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      clip-path: polygon(50% 0%, 100% 40%, 75% 100%, 50% 80%, 25% 100%, 0% 40%);
+      opacity: 0.7;
+      animation: floatUp 5s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+  <div class="card">
+    <h2>How Much Do I Love You?</h2>
+    <button class="love-btn" data-response="Safa, my love for you is as vast as the ocean—endless and deep.">
+      Do you know how boundless my love is for you?
+    </button>
+    <button class="love-btn" data-response="Every beat of my heart sings your name; you are my eternal melody.">
+      Can you feel my love in every beat of my heart?
+    </button>
+    <button class="love-btn" data-response="Without you, my world would lose its color; you are my brightest hue.">
+      Is it clear how vibrant my life is with you in it?
+    </button>
+    <button class="love-btn" data-response="Each moment with you is a cherished blessing, a dream come true.">
+      Do you realize that every second with you is magical?
+    </button>
+    <div class="answer" id="responseArea"></div>
+    <div class="navigation">
+      <a href="letter.html"><button class="btn">Previous</button></a>
+    </div>
+  </div>
+  <audio autoplay loop>
+    <source src="romantic-music.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    document.querySelectorAll('.love-btn').forEach(function(button) {
+      button.addEventListener('click', function(){
+        const responseArea = document.getElementById('responseArea');
+        responseArea.innerText = button.getAttribute('data-response');
+        responseArea.style.opacity = 1;
+        createHeart();
+      });
+    });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+      document.querySelector('.hearts').appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
