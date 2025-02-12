@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine's Day, Safa!</title>
+  <style>
+    /* Global Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #fceabb, #f8b500, #ffdfba);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+    }
+    h1 {
+      color: #d6336c;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+    p {
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+    }
+    .cover-btn {
+      background-color: #d6336c;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+    .cover-btn:hover {
+      background-color: #a71d50;
+    }
+    .cover-image {
+      margin: 20px auto;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Valentine's Day, Safa! 💖</h1>
+    <p>Welcome to our love journey. Click below to dive into our story of endless passion.</p>
+    <a href="letter.html" class="cover-btn">Open Card</a>
+  </div>
+</body>
+</html>
